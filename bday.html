@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message for a Special Friend</title>
+    <style>
+        /* CSS for the full-screen, centered, and aesthetic layout */
+        body {
+            /* Initial Lavender background for a soft, elegant feel */
+            background-color: #E6E6FA; /* Lavender */
+            color: #333333; /* Dark gray text for contrast */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            
+            /* These properties center the initial message perfectly */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            min-height: 100vh; /* Full viewport height */
+            overflow: hidden; /* <--- THIS PREVENTS INITIAL SCROLLING */
+            transition: background-color 0.5s ease;
+        }
+
+        /* Container for all main content */
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 90vw;
+            margin: 0 auto; /* Ensures centering after the body layout changes */
+            /* The background for this container will be set via JavaScript upon reveal */
+        }
+
+        /* Initial greeting text */
+        #initial-prompt {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* The main message and media area, initially hidden */
+        #reveal-content {
+            display: none;
+            padding-top: 50px;
+            animation: fadeIn 2s ease-out forwards; /* Fade-in effect */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Styling for the main headline */
+        #reveal-content h1 {
+            color: #8A2BE2; /* Blue Violet for high contrast and impact */
+            font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive font size */
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); /* Soft purple glow */
+        }
+        
+        /* Styling for the heartfelt message */
+        #reveal-content p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Styling for embedded media (Image or Video) */
+        .media-container { /* Changed ID to class for multiple media blocks */
+            margin: 30px auto;
+            max-width: 700px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .media-container img, .media-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* The main reveal button */
+        #reveal-button {
+            background-color: #DA70D6; /* Orchid/Magenta for a pop of color */
+            color: white; /* White text on the button */
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(218, 112, 214, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #reveal-button:hover {
+            background-color: #c763c7; 
+            transform: scale(1.05);
+        }
+        
+        /* Media Queries for better mobile view */
+        @media (max-width: 600px) {
+            #initial-prompt {
+                font-size: 1.2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-content">
+        <!-- STEP 1: INITIAL PROMPT -->
+        <div id="initial-stage">
+            <p id="initial-prompt">Miss✨, You know I have made many things for youu...🤭 .</p>
+            <button id="reveal-button" onclick="revealMessage()">
+                Click Here!!!👇🏻 to seee👀🤭
+            </button>
+        </div>
+
+        <!-- STEP 2: REVEALED CONTENT (HIDDEN BY DEFAULT) -->
+        <div id="reveal-content">
+            
+            <!-- 
+                ==================================================================================
+                FIRST VIDEO / IMAGE SECTION
+                ==================================================================================
+            -->
+            
+            <div class="media-container" id="video1-container">
+                <video controls loop autoplay muted>
+                    <!-- >>> CHANGE THIS FILENAME TO YOUR FIRST VIDEO FILE NAME <<< -->
+                    <source src="my_special_video.mp4" type="video/mp4"> 
+                    Your browser does not support the video.
+                </video>
+            </div>
+            
+            <h1>To My Dearest Miss✨ Princess 🎀 </h1>
+            <p>
+                Happy Birthday Miss✨🥳! I hope this little surprise finds you well☺️, as I will be with you at that time so no doubt in that🤭. I know the b'day is yours but instead I wanted to thank you for all the incredible memories we've shared, from the smallest jokes😂 to the biggest adventures🥲🤝. You truly make the world a better place for mee 🙂‍↕️🤗.Thank you for sharing things with me 🙂‍↕️, There are many reason but the most important thing is Thankkksss alot🙂‍↕️ for being my friend and giving me the importance that I don't get anywhere but with youuu 🤫🙂‍↕️...So I would like to make a promise🤞🏻 I,Koya🐨/Shivi🎀(or Shivesh Shandilya), Promise to stand by your side no matter what happens, will always be there for Miss ✨/Piggi🐷/princess 🎀👸(or Yashiiii Raj🤭).....🙂‍↕️
+            </p>
+            
+            <!-- 
+                ==================================================================================
+                SECOND VIDEO / IMAGE SECTION (NEWLY ADDED)
+                ==================================================================================
+            -->
+            
+            <h2>And a second message as only one can't be enough for you...✨!</h2>
+            <p>
+                This video captures all of my favorite moments of all time with youuu.... 😌🤗. I hope it brings a smile to your face! 💜
+            </p>
+            
+            <div class="media-container" id="video2-container">
+                <video controls loop muted>
+                    <!-- >>> CHANGE THIS FILENAME TO YOUR SECOND VIDEO FILE NAME (e.g., "my_second_video.mp4") <<< -->
+                    <source src="my_second_video.mp4" type="video/mp4"> 
+                    Your browser does not support the video.
+                </video>
+            </div>
+            
+            <p style="font-style: italic;">
+                Wishing you all the happiness forever and always stay the way you are, You're Miss✨ perfect🤌✨ in your own way🤭
+            </p>
+            <p>— From, Koya🐨/Shivi 🎀🙂‍↕️</p>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * JavaScript function to handle the cinematic reveal effect.
+         */
+        function revealMessage() {
+            // 1. Hide the initial prompt and button
+            document.getElementById('initial-stage').style.display = 'none';
+
+            // 2. Show the main content (video/image and message)
+            const revealContent = document.getElementById('reveal-content');
+            revealContent.style.display = 'block';
+            
+            // 3. FIX: Change the body layout properties to allow scrolling and normal flow
+            document.body.style.display = 'block'; // Change from flex to normal block flow
+            document.body.style.overflow = 'auto'; // Allow vertical scrolling if content is long
+            document.body.style.alignItems = 'flex-start'; // Stop forcing vertical centering
+
+            // 4. ADDED: Set the full-page background image properties
+            // MAKE SURE YOUR IMAGE IS NAMED 'background_friend.jpg' AND IS IN THE SAME FOLDER
+            document.body.style.backgroundImage = "url('background_friend.jpg')"; 
+            document.body.style.backgroundSize = "cover"; /* Makes the image cover the whole screen */
+            document.body.style.backgroundAttachment = "fixed"; /* Keeps the image still when scrolling */
+            document.body.style.backgroundPosition = "center center";
+            
+            // Set the body text color to black
+            document.body.style.color = '#000000'; 
+            
+            // 5. ADDED: Set a semi-transparent background on the content box for readability
+            const container = document.getElementById('main-content');
+            container.style.backgroundColor = 'rgba(255, 255, 255, 0.85)'; // Semi-transparent white
+            container.style.padding = '40px 20px'; // Add padding
+            container.style.borderRadius = '15px'; // Rounded corners
+            container.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)'; // Add shadow
+            container.style.minHeight = '100vh';
+            
+            // 6. Attempt to play both videos after interaction
+            const video1Element = document.querySelector('#video1-container video');
+            const video2Element = document.querySelector('#video2-container video');
+
+            if (video1Element) {
+                video1Element.play().catch(e => console.log("Video 1 Autoplay prevented."));
+            }
+            if (video2Element) {
+                // Ensure second video starts muted too, if it has autoplay
+                video2Element.muted = true; 
+                video2Element.play().catch(e => console.log("Video 2 Autoplay prevented."));
+            }
+        }
+
+        // Add a listener to ensure the FIRST video starts playing automatically on modern browsers 
+        // after the user interaction (click).
+        document.addEventListener('DOMContentLoaded', () => {
+            const video1Element = document.querySelector('#video1-container video');
+            
+            if (video1Element) {
+                // When the reveal button is clicked, we attempt to play the first video
+                document.getElementById('reveal-button').addEventListener('click', () => {
+                    video1Element.play().catch(error => {
+                        console.log("Video 1 Autoplay prevented.");
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
